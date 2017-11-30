@@ -18,11 +18,13 @@
     "chalk": "^2.1.0",
     "eric-meyer-reset.scss": "^1.0.2",
     "express": "^4.15.4",
+    "node-soundcloud": "0.0.6",
     "react": "^15.6.1",
     "react-audioplayer": "^0.3.1",
     "react-dom": "^15.6.1",
     "socket.io": "^2.0.3",
-    "socket.io-client": "^2.0.3"
+    "socket.io-client": "^2.0.3",
+    "superagent": "^3.8.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

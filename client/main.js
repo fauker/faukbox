@@ -7,26 +7,10 @@ import 'eric-meyer-reset.scss/_reset.scss'
 import './styles/app.scss'
 
 // Components
-//import Player from './containers/player.container'
+import App from './components/app.component'
 
 const socket = io.connect()
 const MOUNT_NODE = document.getElementById('app')
-
-class App extends Component {
-
-  render () {
-    return (
-      <div className="container">
-        <div className="search">
-          <input type="text" placeholder="Search for an awesome music..."/>
-        </div>
-        <div className="player">
-          <audio controls></audio>
-        </div>
-      </div>
-    )
-  }
-}
 
 ReactDOM.render(
   <App />,
