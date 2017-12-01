@@ -26,7 +26,6 @@ export default class App extends Component {
         this.setState({
           tracks: body 
         })
-        console.log(this.state.tracks)
       })
   }
 
@@ -48,7 +47,9 @@ export default class App extends Component {
         </form>
         </div>
         <Tracks tracks={this.state.tracks} changeTrack={this.changeTrack} />
-        <Controls track={this.state.currentTrack} />
+        <Controls track={this.state.currentTrack}
+                  tracks={this.state.tracks}
+                  changeTrack={this.changeTrack}/>
       </div>
     )
   }
