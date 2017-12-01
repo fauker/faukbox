@@ -3,9 +3,14 @@
 import React, { Component } from 'react'
 
 export default class Tracks extends Component {
+
+  selectTrack (track) {
+    this.props.changeTrack(track)
+  }
+
   render () {
     const tracks = this.props.tracks.map((track, index) => 
-      <li key={index}>{track.title}</li>
+      <li key={index} onClick={() => this.selectTrack(track)}>{track.title}</li>
     )
     return (
       <div className="tracks">

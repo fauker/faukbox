@@ -11,7 +11,8 @@ export default class App extends Component {
   constructor () {
     super()
     this.state = {
-      tracks: []
+      tracks: [],
+      currentTrack: ''
     }
   }
 
@@ -29,6 +30,12 @@ export default class App extends Component {
       })
   }
 
+  changeTrack = (track) => {
+    this.setState({
+      currentTrack: track
+    })
+  }
+
   render () {
     return (
       <div className="container">
@@ -40,8 +47,8 @@ export default class App extends Component {
             onClick={(event) => this.onSubmit(event)}></button>
         </form>
         </div>
-        <Tracks tracks={this.state.tracks} />
-        <Controls />
+        <Tracks tracks={this.state.tracks} changeTrack={this.changeTrack} />
+        <Controls track={this.state.currentTrack} />
       </div>
     )
   }
