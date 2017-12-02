@@ -1,6 +1,7 @@
 'use strict'
 
 import React, { Component } from 'react'
+import Loading from './loading.component'
 
 export default class Tracks extends Component {
 
@@ -14,6 +15,7 @@ export default class Tracks extends Component {
     )
     return (
       <div className="tracks">
+        { this.props.tracks.length === 0 ? <Loading /> : null } 
         <ul>
           {tracks}
         </ul>     

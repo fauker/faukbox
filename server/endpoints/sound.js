@@ -1,31 +1,23 @@
-
 'use strict'
 
-const Soundcloud = require('node-soundcloud')
-const _shuffle = require('lodash/shuffle')
-
-Soundcloud.init({
-  id: '480c18c7ce22bbe09e989422102de2c8',
-  secret: '645c9dfed9d3dea4e02854e268c379ff',
-  uri: 'foo'
-})
-
-let uri = '/users/8553751/tracks'
+const SoundUtil = require('../utils/sound.util')
 
 class SoundController {
   
-  static fetchTrack (req, res) {
-    Soundcloud.get('/tracks', {
-      limit: 100,
-      q: req.query.term 
-    }, (err, tracks) => {
-      if (err) res.send(err.err_message) 
-      res.json(tracks)
-    })
+  static async fetchTracks (req, res) {
+    let tracks
+
+    try {
+      tracks = await SoundUtil.queryTracks(req.query.term)
+    } catch (err) {
+      return res.send(err.err_message)
+    }
+
+    res.json(tracks)
   }
 
 }
 
 module.exports = (router) => {
-  router.get('/api/sounds/search', SoundController.fetchTrack)
+  router.get('/api/sounds/search', SoundController.fetchTracks)
 }

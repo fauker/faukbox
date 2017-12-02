@@ -1,5 +1,5 @@
 $primary-color: #20214f;
-$secondary-color: #ee82ee;
+$secondary-color: #FD000A;
 $tertiary-color: #40e0d0;
 
 $mobile: "max-width: 776px"; 
@@ -68,4 +68,22 @@ body {
       font-weight: 500;
     }
   }
+}
+
+.preloader {
+  display: flex;
+  align-self: center;
+  flex-flow: column wrap;
+  img {
+    margin-top: 15%;
+    width: 25vw;
+    height: 25vw;
+    align-self: center;
+    animation: 1s dance infinite forwards;
+  }
+}
+
+@keyframes dance {
+  40% { transform: scale(1.4) rotate(17deg) }
+  70% { transform: scale(0.7) rotate(-27deg) }
 }

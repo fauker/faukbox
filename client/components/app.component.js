@@ -5,6 +5,9 @@ import * as request from 'superagent'
 
 import Tracks from './tracks.component'
 import Controls from './controls.component'
+import { fetchQuery } from '../utils/sound.util'
+
+const DEFAULT_ARTIRST = 'Martin Garrix'
 
 export default class App extends Component {
 
@@ -12,21 +15,30 @@ export default class App extends Component {
     super()
     this.state = {
       tracks: [],
-      currentTrack: ''
+      currentTrack: {
+        stream_url: ''
+      }
     }
+    fetchQuery(DEFAULT_ARTIRST)
+      .then(results => {
+        this.setState({
+          tracks: results,
+          currentTrack: results[0]
+        })
+      }).catch(error => console.log(error))     
   }
 
   onSubmit = (event) => {
     event.preventDefault()
-    request.get('/api/sounds/search')
-      .query({ term: this.search.value })
-      .set('accept', 'json')
-      .end((err, { body }) => {
-        if (err) console.log(err)
+    this.setState({
+      tracks: []
+    })
+    fetchQuery(this.search.value)
+      .then(results => {
         this.setState({
-          tracks: body 
+          tracks: results
         })
-      })
+      }).catch(error => console.log(error))
   }
 
   changeTrack = (track) => {
