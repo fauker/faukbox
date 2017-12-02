@@ -1,11 +1,16 @@
 $primary-color: #20214f;
 $secondary-color: #FD000A;
 $tertiary-color: #40e0d0;
+$support-color: #D1D3C4;
+$accent-color: #256EFF;
+$warn-color: #DB5461;
+$success-color: #16DB93;
+
 
 $mobile: "max-width: 776px"; 
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat';
   color: white;
   position: relative;
   width: 100%;
@@ -34,13 +39,9 @@ body {
         outline: none;
         padding: 10px 0;
         font-size: 15px;
-        color: $secondary-color;
         @media screen and ($mobile) {
           width: 60%;
         }
-      }
-      input::placeholder {
-        color: $secondary-color;
       }
     }
   }
@@ -68,6 +69,47 @@ body {
       font-weight: 500;
     }
   }
+  .title {
+    display: flex;
+    cursor: pointer;
+    p {
+      align-self: center;
+      font-weight: 700;
+    }
+    img {
+      width: 44px;
+      height: 44px;
+      margin-right: 8px;
+    }
+  }
+  .stats {
+    display: flex;
+    font-style: italic;
+    .stat {
+      padding: 8px 8px 0 0;
+    }
+    i {
+      margin-right: 8px;
+    }
+    .fa-play {
+      color: $secondary-color;
+    }
+    .fa-heart {
+      color: $warn-color;
+    }
+    .genre {
+      color: $accent-color;
+    }
+  }
+  .playing {
+    background: $secondary-color !important;
+    em {
+      color: white !important;
+    }
+  }
+  .playing-now {
+    margin-top: 15px;
+  }
 }
 
 .preloader {
@@ -75,7 +117,7 @@ body {
   align-self: center;
   flex-flow: column wrap;
   img {
-    margin-top: 15%;
+    margin-top: 10%;
     width: 25vw;
     height: 25vw;
     align-self: center;

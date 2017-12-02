@@ -35,6 +35,7 @@ export default class App extends Component {
     })
     fetchQuery(this.search.value)
       .then(results => {
+        console.log(results)
         this.setState({
           tracks: results
         })
@@ -53,12 +54,13 @@ export default class App extends Component {
         <div className="nav">
         <form name="search">
           <input ref={(search) => this.search = search}
-            type="text" placeholder="Search for an awesome music... 🎧"/>
+            type="text" placeholder="Search for an awesome music or artist... 🎧"/>
           <button type="submit" hidden="true"
             onClick={(event) => this.onSubmit(event)}></button>
         </form>
         </div>
-        <Tracks tracks={this.state.tracks} changeTrack={this.changeTrack} />
+        <Tracks tracks={this.state.tracks} changeTrack={this.changeTrack} 
+                track={this.state.currentTrack} />
         <Controls track={this.state.currentTrack}
                   tracks={this.state.tracks}
                   changeTrack={this.changeTrack}/>
