@@ -26,14 +26,13 @@ body {
     overflow: hidden;
     top: 0;
     width: 100%;
-    padding: 20px;
+    padding: 22px;
     form {
       display: flex;
       justify-content: center;
       input {
         text-align: center;
         width: 30%;
-        font-size: 20px;
         border: none;
         border: 1px double $tertiary-color;
         outline: none;
@@ -46,12 +45,25 @@ body {
     }
   }
   .controls {
+    display: flex;
+    flex-direction: column-reverse;
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: white;
     audio {
       width: 100%;
+    }
+    canvas {
+      width: 100%;
+      height: 15vh;
+      margin: 0 auto;
+      animation-name: canvas;
+      animation-duration: 5s;
+      animation-timing-function: ease;
+      animation-delay: 1s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-play-state: running;
     }
   }
   .tracks {
@@ -64,9 +76,11 @@ body {
       cursor: pointer;
       background: $tertiary-color;
       &.playing {
+        font-size: 17px;
+        font-weight: 500;
         background: $secondary-color;
         z-index: 100;
-        animation: fix 0.0s 0.0s linear forwards;
+        animation: fix 0.0s 0.0s linear forwards, beat .99s infinite alternate;
         &:after {
           content: 'NOW PLAYING';
           padding-top: 5px;
@@ -136,7 +150,30 @@ body {
   100% {
     position: fixed;
     top: 0;
-    width: 100%;
-    margin: 80px 0 0 0;
+    width: 97%;
+    margin: 80px 0;
   }
+}
+
+@keyframes canvas {
+   0%   { 
+      background: white;
+      height: 25vh;
+   }
+   25%  { background: $tertiary-color; }
+   50%  { 
+     background: white;
+     height: 15vh;
+  }
+   75%  {
+    background: $tertiary-color;
+    height: 20vh;
+  }
+   100% { 
+      background: white;
+   }
+ }
+
+@keyframes beat {
+	to { transform: scale(0.98); }
 }

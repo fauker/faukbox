@@ -35,11 +35,11 @@ export default class App extends Component {
     })
     fetchQuery(this.search.value)
       .then(results => {
-        console.log(results)
         this.setState({
           tracks: results,
           currentTrack: results[0]
         })
+        window.scrollTo(0, 0)
       }).catch(error => console.log(error))
   }
 
