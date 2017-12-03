@@ -37,7 +37,8 @@ export default class App extends Component {
       .then(results => {
         console.log(results)
         this.setState({
-          tracks: results
+          tracks: results,
+          currentTrack: results[0]
         })
       }).catch(error => console.log(error))
   }

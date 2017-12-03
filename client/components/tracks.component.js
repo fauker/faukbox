@@ -26,13 +26,6 @@ export default class Tracks extends Component {
             <em className="genre">{track.genre}</em>
           </div>
         </div>
-        { this.props.track.id === track.id ?
-          <div className="playing-now">
-            <em>PLAYING NOW</em>
-          </div>       
-          : ''
-        }
-
       </li>
     )
     return (

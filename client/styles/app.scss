@@ -55,14 +55,26 @@ body {
     }
   }
   .tracks {
-    margin-top: 100px;
+    margin-top: 215px;
     ul li {
       font-weight: 200;
       border-radius: 2px;
       margin: 15px 50px;
       padding: 25px;
-      background: $tertiary-color;
       cursor: pointer;
+      background: $tertiary-color;
+      &.playing {
+        background: $secondary-color;
+        z-index: 100;
+        animation: fix 0.0s 0.0s linear forwards;
+        &:after {
+          content: 'NOW PLAYING';
+          padding-top: 5px;
+          position: absolute;
+          background: $secondary-color;
+          color: $tertiary-color;
+        }
+      }
     }
     li:hover {
       font-size: 17px;
@@ -101,15 +113,6 @@ body {
       color: $accent-color;
     }
   }
-  .playing {
-    background: $secondary-color !important;
-    em {
-      color: white !important;
-    }
-  }
-  .playing-now {
-    margin-top: 15px;
-  }
 }
 
 .preloader {
@@ -117,7 +120,6 @@ body {
   align-self: center;
   flex-flow: column wrap;
   img {
-    margin-top: 10%;
     width: 25vw;
     height: 25vw;
     align-self: center;
@@ -128,4 +130,13 @@ body {
 @keyframes dance {
   40% { transform: scale(1.4) rotate(17deg) }
   70% { transform: scale(0.7) rotate(-27deg) }
+}
+
+@keyframes fix {
+  100% {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin: 80px 0 0 0;
+  }
 }
