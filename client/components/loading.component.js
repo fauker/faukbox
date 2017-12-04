@@ -5,8 +5,9 @@ import React, { Component } from 'react'
 export default class Loading extends Component {
   render () {
     return (
-      <figure className="preloader">
+      <figure className="loading">
         <img src="/assets/Deadmau5_logo.png" />
+        <em>by fauker</em>
       </figure>
     )
   }

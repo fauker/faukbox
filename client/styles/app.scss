@@ -129,13 +129,19 @@ body {
   }
 }
 
-.preloader {
+.loading {
   display: flex;
   align-self: center;
   flex-flow: column wrap;
   img {
     width: 25vw;
     height: 25vw;
+    align-self: center;
+    animation: 1s dance infinite forwards;
+  }
+  em {
+    color: $primary-color;
+    padding-top: 60px;
     align-self: center;
     animation: 1s dance infinite forwards;
   }
