@@ -1,6 +1,9 @@
 {
   "name": "react-skeleton",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.7.0"
+  },
   "description": "A react webpack express socket.io starter",
   "main": "index.js",
   "scripts": {
