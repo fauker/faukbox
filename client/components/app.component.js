@@ -53,12 +53,16 @@ export default class App extends Component {
     return (
       <div className="container">
         <div className="nav">
-        <form name="search">
-          <input ref={(search) => this.search = search}
-            type="text" placeholder="Search for an awesome music or artist... 🎧"/>
-          <button type="submit" hidden="true"
-            onClick={(event) => this.onSubmit(event)}></button>
-        </form>
+          <div className="logo">
+            <img src="/assets/Deadmau5_logo.png" />
+            <em>faukbox</em>
+          </div>
+          <form name="search">
+            <input ref={(search) => this.search = search}
+              type="text" placeholder="Search for an awesome music or artist... 🎧"/>
+            <button type="submit" hidden="true"
+              onClick={(event) => this.onSubmit(event)}></button>
+          </form>
         </div>
         <Tracks tracks={this.state.tracks} changeTrack={this.changeTrack} 
                 track={this.state.currentTrack} />
