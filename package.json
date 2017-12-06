@@ -1,10 +1,10 @@
 {
-  "name": "react-skeleton",
+  "name": "faukbox",
   "version": "1.0.0",
   "engines": {
     "node": "8.7.0"
   },
-  "description": "A react webpack express socket.io starter",
+  "description": "A Soundplayer example",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server/server.js --ignore 'client/*'",
@@ -15,7 +15,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/camwhite/react-skeleton"
+    "url": "https://github.com/fauker/faukbox"
   },
   "dependencies": {
     "chalk": "^2.1.0",
